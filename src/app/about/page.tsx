@@ -12,6 +12,8 @@ import {
 } from '@/components/SocialIcons'
 import portraitImage from '@/images/portrait.jpg'
 
+import BlurText from "@/components/react-spring/BlurText";
+
 function SocialLink({
   className,
   href,
@@ -68,9 +70,13 @@ export default function About() {
           </div>
         </div>
         <div className="lg:order-first lg:row-span-2">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            I’m Sila Buranarom.
-          </h1>
+          <BlurText
+            text="I’m Sila Buranarom."
+            delay={150}
+            animateBy="words"
+            direction="top"
+            className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+          />
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
               I’ve always been curious about how things work and love exploring new ideas. 

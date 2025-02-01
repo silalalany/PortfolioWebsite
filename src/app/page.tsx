@@ -1,3 +1,5 @@
+
+
 import Image, { type ImageProps } from 'next/image'
 import Link from 'next/link'
 import clsx from 'clsx'
@@ -19,6 +21,9 @@ import logoSk1 from '@/images/logos/sk1.svg'
 
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
+
+import SplitText from "@/components/react-spring/SplitText";
+import { useCallback } from 'react';
 
 
 function BriefcaseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
@@ -209,13 +214,21 @@ function Education() {
 export default async function Home() {
   let articles = (await getAllArticles()).slice(0, 4)
 
+
   return (
     <>
       <Container className="mt-9">
         <div className="max-w-2xl">
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Software developer, founder, and a Porsche enthusiast.
-          </h1>
+          <SplitText
+            text="Software developer, founder, and a Porsche enthusiast."
+            className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100"
+            delay={150}
+            animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
+            animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
+            easing="easeOutCubic"
+            threshold={0.2}
+            rootMargin="-50px"
+          />
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Silany, a software developer and entrepreneur based in Thai as Krung Thep Maha Nakhon. I’m passionate about creating innovative technologies and building meaningful digital experiences that make a positive impact.
           </p>

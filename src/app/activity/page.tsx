@@ -5,6 +5,9 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import { type ArticleWithSlug, getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
+import SplashCursor from '@/components/react-spring/SplashCursor'
+
+
 function Article({ article }: { article: ArticleWithSlug }) {
   return (
     <article className="md:grid md:grid-cols-4 md:items-baseline">
@@ -55,6 +58,7 @@ export default async function ArticlesIndex() {
           ))}
         </div>
       </div>
+      <SplashCursor />
     </SimpleLayout>
   )
 }
